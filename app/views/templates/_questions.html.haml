@@ -1,0 +1,6 @@
+%script{:type => "text/ng-template",
+        :id  => "questions.html"}
+  #questionContainer.box(ng-controller="questionController")
+    %header
+      %h3 Quiz {{quiz.id}}
+    .form_wrap{"ng-include" => "", "src" => "'answer.html'"}

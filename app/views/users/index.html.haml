@@ -1,0 +1,15 @@
+#login(ng-controller="user")
+  .inside
+    %header
+      %h3 Login
+    .form_wrap
+      = form_for(:user, :url => {:controller => 'users', :action => 'login'}, :html => {:name => "form"}) do |f|
+        %p
+          = f.text_field(:email, {"ng-model" => "user.email", "required" => "required", "placeholder" => "Email"})
+        %p
+          = f.password_field(:password, {"ng-model" => "user.password", "required" => "required", "placeholder" => "Password"})
+      .subButton(ng-click = "login(user)") Login
+
+      %p {{ error }}
+
+      %a(ng-href="#/new") Not a member? Sign up Here!

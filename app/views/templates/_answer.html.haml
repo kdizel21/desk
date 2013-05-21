@@ -1,0 +1,16 @@
+%script{:type => "text/ng-template",
+        :id  => "answer.html"}
+  %p.question
+    {{title}}
+  %form
+    %p{"ng-repeat" => "answer in answers"}
+      %input{"type" => "radio", "ng-model" => "answerResponse", "name" => "answer",
+              "value" => "{{answer.id}}", "ng-click" => "localStorage(answer)"}
+      {{answer.answer}}
+  .buttons
+    %a.back(ng-href="{{backLink}}")
+      .subButton
+        Back
+    %a.next{"ng-href" => "{{nextLink}}"}
+      .subButton
+        Next

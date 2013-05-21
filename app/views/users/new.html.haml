@@ -1,0 +1,15 @@
+#signup(ng-controller="user")
+  .inside
+    %header
+      %h3 Sign Up
+    .form_wrap
+      = form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:name => "form"}) do |f|
+        %p
+          = f.text_field(:email, {"ng-model" => "user.email", "required" => "required", "placeholder" => "Email"})
+        %p
+          = f.password_field(:password, {"ng-model" => "user.password_raw", "required" => "required", "placeholder" => "Password"})
+        %p
+          = f.password_field(:password, {"ng-model" => "user.password_raw_confirmation", "required" => "required", "placeholder" => "Confirm Password"})
+      %p {{ error }}
+      .subButton(ng-click = "create(user)") Join!
+

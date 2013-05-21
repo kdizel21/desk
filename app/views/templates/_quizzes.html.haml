@@ -1,0 +1,6 @@
+%script{:type => "text/ng-template",
+        :id  => "quizzes.html"}
+  %h3 Take A Quiz Angular
+  #quizList(ng-controller="quizController")
+    %p(ng-repeat="quiz in quizzes")
+      %a(ng-href ="#quiz/{{quiz.id}}/1") Take quiz {{ quiz.id }}

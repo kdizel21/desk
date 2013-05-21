@@ -1,1 +1,7 @@
-= link_to "Desk", root_path, :class => 'brand'
+
+  .nav_wrap
+    %a.brand(ng-href="/") Desk
+    - if @user
+      %span
+        Hello, {{email}}
+      = link_to "Logout", logout_path, :class => 'logout'

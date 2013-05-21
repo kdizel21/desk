@@ -1,0 +1,6 @@
+%script{:type => "text/ng-template",
+        :id  => "nav.html"}
+  %a.brand(ng-href="#/") Desk
+  .rightContainer
+    %span(ng-bind = "loggedIn()")
+    = link_to "Logout", logout_path, {:class => 'logout', "ng-show" => "loggedIn()"}

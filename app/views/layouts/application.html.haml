@@ -1,5 +1,5 @@
 !!!
-%html
+%html(ng-app="deskApp")
   %head
     %meta{:charset => "utf-8"}
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
@@ -8,19 +8,29 @@
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag    "application", :media => "all"
+    :javascript
+      var Desk = {};
+      Desk.user = #{@user_info}
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
   %body
-    %header.navbar.navbar-fixed-top
+    %header.navbar.navbar-fixed-top(ng-controller = "user")
       %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
+        .container{"ng-include" => "", "src" => "'nav.html'"}
+
     #main{:role => "main"}
       .container
         .content
           .row
-            .span12
+            .span12(ng-view="")
               = render 'layouts/messages'
               = yield
           %footer
+    = render 'templates/index'
+    = render 'templates/new'
+    = render 'templates/quizzes'
+    = render 'templates/nav'
+    = render 'templates/questions'
+    = render 'templates/answer'
+    = render 'templates/completed'

@@ -1,0 +1,4 @@
+%h3 Take A Quiz controller
+  #quizList(ng-controller="quizController")
+    %p(ng-repeat="quiz in quizzes")
+      %a(ng-href = "#Quiz/{{quiz.id}}/{{question.id}}") {{ "Take quiz" + quiz.id }}
